@@ -1,0 +1,48 @@
+body {
+
+}
+#game-wrap {
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+}
+#outer-box {
+	border: 3px solid gray;
+	padding:20px;
+}
+.row {
+	width: 100%;
+}
+.row:after {
+	content: "";
+    display: table;
+    clear: both;
+}
+.one-half {
+	width: 50%;
+}
+.box {
+	width: 155px;
+	height: 155px;
+	margin: 10px;
+	float: left;
+	opacity: .2;
+}
+.red {
+	background-color: red;
+}
+.blue {
+	background-color: blue;
+}
+.green {
+	background-color: green;
+}
+.yellow {
+	background-color: yellow;
+}
+.red:hover,
+.blue:hover,
+.green:hover,
+.yellow:hover {
+	opacity: 1;
+}
