@@ -2,8 +2,30 @@
 <html>
 <head>
 	<title>Simple Simon</title>
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/box_sizing.css">
+	<link rel="stylesheet" href="/css/simplesimon.css">
 </head>
 <body>
-	<h1>HEY</h1>
+	<div id="game-wrap">
+		<header>
+			<h1>Simple Simon</h1>
+		</header>
+		<section id="box">
+			<div id="outer-box" class="row">
+				<div id="1" class="one-half box red"></div>
+				<div id="2" class="one-half box blue"></div>
+				<div id="3" class="one-half box green"></div>
+				<div id="4" class="one-half box yellow"></div>
+			</div>
+		</section>
+		<section id="information">
+			<h3 id="instruction">Repeat the sequence you just saw.</h3>
+			<h3>Current Round: <span id="round">1</span></h3>
+		</section>
+	</div>
+
+	<script src="/js/jquery-2.1.4.min.js"></script>
+	<script src="/js/simplesimon.js"></script>
 </body>
 </html>
