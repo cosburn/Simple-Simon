@@ -1,6 +1,6 @@
 "use strict";
 
-var round = 0;
+var round = 1;
 var sequence = [];
 var guess = [];
 var n = 0;
@@ -10,7 +10,7 @@ function getRandomInt(min, max) {
 }
 //set guess back to empty, iterator n back to 0 so sequence will start at the begging each time
 //update the round and instruction display
-//add a new random number to the sequence
+//add a new random number to the sequence, then pass it to the function that animates it
 function setSequence() {
 	guess = [];
 	n = 0;
@@ -53,4 +53,8 @@ for (var i = 0; i<=4; i++) {
 		}
 	});
 }
-
+//add event listener to start button, to begin game play
+$("#btn-start").click(function() {
+	setSequence();
+	$(this).css("display","none");
+});
