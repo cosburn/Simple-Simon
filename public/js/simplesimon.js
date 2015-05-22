@@ -1,42 +1,56 @@
 "use strict";
 
-var round = 5;
+var round = 0;
 var sequence = [];
+var guess = [];
 var n = 0;
 
 function getRandomInt(min, max) {
 	return Math.floor(Math.random()*(max - min))+min;
 }
-function highlight(n) {
-	$("#" + n)
-		.animate ({opacity: 1},1000)
-		.animate ({opacity: .2},1000);
-		console.log("running " + n);
-}
+//set guess back to empty, iterator n back to 0 so sequence will start at the begging each time
+//update the round and instruction display
+//add a new random number to the sequence
 function setSequence() {
-	for (var i = 1; i <= round; i++) {
-		sequence.push(getRandomInt(1,round));
-	}
-	console.log(sequence);
+	guess = [];
+	n = 0;
+	$("#round").html(round);
+	$("#instruction").html("Watch the sequence.");
+	sequence.push(getRandomInt(1,5));
 	playSequence(sequence);
-
-	// sequence.forEach(function(element, index, array) {
-	// 	console.log("forEach "+element)
-	// 	setTimeout(function(){
-	// 		highlight(element);
-	// 	},3000);
-			
-	// });
 }
+//loop through, animating each box for as many numbers as are in the sequence using n as a counter
 function playSequence(array) {
+	console.log("n = "+n);
 	setTimeout(function(){
 		$("#" + array[n])
 			.animate ({opacity: 1},500)
 			.animate ({opacity: .2},500);
 		console.log("running " + array[n]);
-		n++;
-		if (n < array.length) {
+		if (n == (array.length - 1)) {
+			$("#instruction").html("Repeat the sequence you just saw.");
+		} else {
+			n++;
 			playSequence(array);
 		}
 	},1000);
 }
+//create button listeners that record the ID number of that button and add it to a "guess" array
+for (var i = 0; i<=4; i++) {	
+	$("#" + i).click(function(){
+		console.log(this);
+		guess.push($(this).attr("id"));
+		console.log(guess);
+		for (var j = 0; j < guess.length; j++) {
+			if (guess[j] != sequence[j]) {
+				alert("WRONG");
+			} else {
+				if (guess.length == sequence.length) {
+					round++;
+					setSequence();
+				}
+			}
+		}
+	});
+}
+
