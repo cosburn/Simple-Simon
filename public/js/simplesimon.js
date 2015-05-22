@@ -40,7 +40,7 @@ for (var i = 0; i<=4; i++) {
 	//highlight buttons when clicked
 	$("#" + i)
 		.mouseup(function(){	
-			$(this).css("opacity",".2");
+			$(this).css("opacity",".3");
 		})
 		.mousedown(function(){
 			$(this).css("opacity","1");
