@@ -35,10 +35,18 @@ function playSequence(array) {
 		}
 	},1000);
 }
-//create button listeners that record the ID number of that button and add it to a "guess" array
-for (var i = 0; i<=4; i++) {	
+//for loop that iterates through all boxes
+for (var i = 0; i<=4; i++) {
+	//highlight buttons when clicked
+	$("#" + i)
+		.mouseup(function(){	
+			$(this).css("opacity",".2");
+		})
+		.mousedown(function(){
+			$(this).css("opacity","1");
+		});
+	//add click event to check the user's guess of that button against the sequence
 	$("#" + i).click(function(){
-		console.log(this);
 		guess.push($(this).attr("id"));
 		console.log(guess);
 		for (var j = 0; j < guess.length; j++) {

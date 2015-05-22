@@ -40,9 +40,9 @@ body {
 .yellow {
 	background-color: yellow;
 }
-.red:hover,
-.blue:hover,
-.green:hover,
-.yellow:hover {
+.box:hover {
+	opacity: 1;
+}
+.hover {
 	opacity: 1;
 }
