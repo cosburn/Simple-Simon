@@ -25,7 +25,7 @@ function playSequence(array) {
 	setTimeout(function(){
 		$("#" + array[n])
 			.animate ({opacity: 1},500)
-			.animate ({opacity: .2},500);
+			.animate ({opacity: .5},500);
 		console.log("running " + array[n]);
 		if (n == (array.length - 1)) {
 			$("#instruction").html("Repeat the sequence you just saw.");
@@ -40,7 +40,7 @@ for (var i = 0; i<=4; i++) {
 	//highlight buttons when clicked
 	$("#" + i)
 		.mouseup(function(){	
-			$(this).css("opacity",".3");
+			$(this).css("opacity",".5");
 		})
 		.mousedown(function(){
 			$(this).css("opacity","1");
@@ -52,6 +52,9 @@ for (var i = 0; i<=4; i++) {
 		for (var j = 0; j < guess.length; j++) {
 			if (guess[j] != sequence[j]) {
 				alert("WRONG");
+				guess = [];
+				sequence = [];
+				$("#btn-start").css("display","inline");
 			} else {
 				if (guess.length == sequence.length) {
 					round++;

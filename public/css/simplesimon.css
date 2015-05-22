@@ -1,15 +1,29 @@
 body {
-
+	background-color: #fafafa;
 }
 #game-wrap {
 	width: 400px;
 	margin: 0 auto;
+	margin-top:50px;
 	text-align: center;
 }
-#outer-box {
-	border: 3px solid gray;
+#outer-circle {
 	padding:20px;
 	border-radius: 50%;
+	background-color: #000;
+}
+#inner-circle {
+	width:150px;
+	height:150px;
+	border-radius: 50%;
+	z-index: 1;
+	position: absolute;
+	margin: 105px;
+	background-color: #000;
+	color: #fff;
+	font-size: 35px;
+	text-align: center;
+	padding-top:55px;
 }
 .row {
 	width: 100%;
@@ -23,11 +37,12 @@ body {
 	width: 50%;
 }
 .box {
-	width: 155px;
+	width: 160px;
 	height: 155px;
 	margin: 10px;
 	float: left;
-	opacity: .3;
+	opacity: .5;
+	position: relative;
 }
 .red {
 	background-color: red;
@@ -44,9 +59,6 @@ body {
 .yellow {
 	background-color: yellow;
 	border-bottom-right-radius: 100%;
-}
-.box:hover {
-	opacity: 1;
 }
 .hover {
 	opacity: 1;
