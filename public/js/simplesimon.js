@@ -9,9 +9,19 @@ var checkCounter;
 function getRandomInt(min, max) {
 	return Math.floor(Math.random()*(max - min))+min;
 }
-//set guess back to empty, iterator n back to 0 so sequence will start at the begging each time
-//update the round and instruction display
-//add a new random number to the sequence, then pass it to the function that animates it
+//start game function, start over function
+function startOver() {
+	guess = [];
+	sequence = [];
+	round = 1;
+	$("#btn-start").css("display","inline");
+	alert("Play Again?");
+}
+
+// set guess array back to empty for each round, 
+// set n back to 0 so sequence will play from the begging each time in playSequence
+// update round and instruction display
+// add a new random number to the sequence, then pass it to the function that animates it
 function setSequence() {
 	guess = [];
 	n = 0;
@@ -58,9 +68,7 @@ for (var i = 0; i<=4; i++) {
 			console.log("does " + guess[j] + " equal " + sequence[j] + "?");
 			if (guess[j] != sequence[j]) {
 				alert("WRONG");
-				guess = [];
-				sequence = [];
-				$("#btn-start").css("display","inline");
+				startOver();
 			} else {
 				console.log("I believe so!");
 				checkCounter++;
