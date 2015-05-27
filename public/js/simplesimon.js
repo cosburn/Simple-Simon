@@ -5,6 +5,10 @@ var sequence = [];
 var guess = [];
 var n = 0;
 var checkCounter;
+var buttonSound;
+var gameover = document.getElementById("game-over");
+var wrong = document.getElementById("wrong");
+
 
 function getRandomInt(min, max) {
 	return Math.floor(Math.random()*(max - min))+min;
@@ -36,7 +40,9 @@ function playSequence(array) {
 		$("#" + array[n])
 			.animate ({opacity: 1},500)
 			.animate ({opacity: .5},500);
-		// console.log("running " + array[n]);
+		buttonSound = document.getElementById("sound" + array[n]);
+		buttonSound.play();
+
 		if (n == (array.length - 1)) {
 			$("#instruction").html("Repeat the sequence you just saw.");
 			console.log("the new sequence is "+sequence);
@@ -56,6 +62,7 @@ for (var i = 0; i<=4; i++) {
 		.mousedown(function(){
 			$(this).css("opacity","1");
 		});
+
 	//add click event to check the user's guess of that button against the sequence
 	$("#" + i).click(function(){
 		checkCounter = 0;
@@ -64,12 +71,16 @@ for (var i = 0; i<=4; i++) {
 		console.log("guess = " + guess);
 		console.log("sequence = " + sequence);
 		for (var j = 0; j < guess.length; j++) {
-			console.log("j = "+j);
 			console.log("does " + guess[j] + " equal " + sequence[j] + "?");
 			if (guess[j] != sequence[j]) {
-				alert("WRONG");
+				console.log("No!");
+				wrong.play();
+				gameover.play();
 				startOver();
 			} else {
+				//play sound for buttons when clicked
+				buttonSound = document.getElementById("sound" + $(this).attr("id"));
+				buttonSound.play();
 				console.log("I believe so!");
 				checkCounter++;
 				if (checkCounter == sequence.length) {
