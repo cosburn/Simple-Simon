@@ -2,15 +2,19 @@ body {
 	background-color: #fafafa;
 }
 #game-wrap {
-	width: 400px;
+	width: 550px;
 	margin: 0 auto;
-	margin-top:50px;
 	text-align: center;
+	clear: both;
+	background-color: #cecece;
+	padding:50px;
 }
 #outer-circle {
+	width:400px;
 	padding:20px;
 	border-radius: 50%;
 	background-color: #000;
+	margin: 0 auto;
 }
 #inner-circle {
 	width:150px;
@@ -19,11 +23,29 @@ body {
 	z-index: 1;
 	position: absolute;
 	margin: 105px;
-	background-color: #000;
+	background-color: green;
+	border: 10px solid black;
 	color: #fff;
-	font-size: 35px;
+	font-size: 30px;
 	text-align: center;
-	padding-top:55px;
+	padding-top:45px;
+	cursor: pointer;
+}
+#score-box {
+	width: 550px;
+	font-size: 20px;
+	line-height: 10px;
+	margin: 0 auto;
+	color: #fff;
+	padding: 5px;
+	background-color: #000;
+	text-align: right;
+}
+#bonus {
+	display: none;
+	font-size: 50px;
+	float: right;
+	z-index: 3;
 }
 .row {
 	width: 100%;
@@ -43,6 +65,7 @@ body {
 	float: left;
 	opacity: .5;
 	position: relative;
+	cursor: pointer;
 }
 .red {
 	background-color: red;

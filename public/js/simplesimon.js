@@ -8,6 +8,7 @@ var checkCounter;
 var buttonSound;
 var gameover = document.getElementById("game-over");
 var wrong = document.getElementById("wrong");
+var score = 0;
 
 
 function getRandomInt(min, max) {
@@ -21,6 +22,10 @@ function startOver() {
 	$("#btn-start").css("display","inline");
 	alert("Play Again?");
 }
+//bonus points!
+function bonus() {
+
+}
 
 // set guess array back to empty for each round, 
 // set n back to 0 so sequence will play from the begging each time in playSequence
@@ -30,7 +35,7 @@ function setSequence() {
 	guess = [];
 	n = 0;
 	$("#round").html(round);
-	$("#instruction").html("Watch the sequence.");
+	$("#inner-circle").html("Watch.");
 	sequence.push(getRandomInt(1,5));
 	playSequence(sequence);
 }
@@ -38,19 +43,19 @@ function setSequence() {
 function playSequence(array) {
 	setTimeout(function(){
 		$("#" + array[n])
-			.animate ({opacity: 1},300)
-			.animate ({opacity: .5},300);
+			.animate ({opacity: 1},400)
+			.animate ({opacity: .5},400);
 		buttonSound = document.getElementById("sound" + array[n]);
 		buttonSound.play();
 
 		if (n == (array.length - 1)) {
-			$("#instruction").html("Repeat the sequence you just saw.");
+			$("#inner-circle").html("Repeat.");
 			console.log("the new sequence is "+sequence);
 		} else {
 			n++;
 			playSequence(array);
 		}
-	},500);
+	},800);
 }
 //for loop that iterates through all boxes
 for (var i = 0; i<=4; i++) {
@@ -85,6 +90,12 @@ for (var i = 0; i<=4; i++) {
 				checkCounter++;
 				if (checkCounter == sequence.length) {
 					round++;
+					score++;
+					if (score % 5 == 0) {
+						score += 5;
+						bonus();
+					}
+					$("#score").html(score);
 					setSequence();
 				}
 			}
@@ -92,7 +103,8 @@ for (var i = 0; i<=4; i++) {
 	});
 }
 //add event listener to start button, to begin game play
-$("#btn-start").click(function() {
+$("#inner-circle").click(function() {
 	setSequence();
-	$(this).css("display","none");
+	$(this).css("background-color","#000");
+	$(this).html("Watch.");
 });

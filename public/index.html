@@ -7,22 +7,29 @@
 	<link rel="stylesheet" href="/css/simplesimon.css">
 </head>
 <body>
+	<div id="score-box">
+		<p>Round: <span id="round">1</span> Score: <span id="score">0</span></p>
+	</div>
 	<div id="game-wrap">
 		<section id="game">
 			<div id="outer-circle" class="row">
-				<div id="inner-circle" class="inner-circle black">SIMON</div>
+				<div id="inner-circle" class="inner-circle black">start.</div>
 				<div id="1" class="one-half box red"></div>
 				<div id="2" class="one-half box blue"></div>
 				<div id="3" class="one-half box green"></div>
 				<div id="4" class="one-half box yellow"></div>
 			</div>
 		</section>
-		<section id="information">
-			<h3 id="instruction">Watch the sequence.</h3>
-			<h3>Current Round: <span id="round">1</span></h3>
-			<button id="btn-start">Start</button>
-		</section>
 	</div>
+	<p id="bonus">+5</p>
+
+	<!-- audio elements -->
+	<audio id="sound1" src="audio/sound1.mp3"></audio>
+	<audio id="sound2" src="audio/sound2.mp3"></audio>
+	<audio id="sound3" src="audio/sound3.mp3"></audio>
+	<audio id="sound4" src="audio/sound4.mp3"></audio>
+	<audio id="wrong" src="audio/wrong.mp3"></audio>
+	<audio id="game-over" src="audio/game-over.mp3"></audio>
 
 	<script src="/js/jquery-2.1.4.min.js"></script>
 	<script src="/js/simplesimon.js"></script>
