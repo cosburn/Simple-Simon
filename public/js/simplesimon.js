@@ -38,8 +38,8 @@ function setSequence() {
 function playSequence(array) {
 	setTimeout(function(){
 		$("#" + array[n])
-			.animate ({opacity: 1},500)
-			.animate ({opacity: .5},500);
+			.animate ({opacity: 1},300)
+			.animate ({opacity: .5},300);
 		buttonSound = document.getElementById("sound" + array[n]);
 		buttonSound.play();
 
@@ -50,7 +50,7 @@ function playSequence(array) {
 			n++;
 			playSequence(array);
 		}
-	},1000);
+	},500);
 }
 //for loop that iterates through all boxes
 for (var i = 0; i<=4; i++) {
